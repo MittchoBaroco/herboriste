@@ -24,6 +24,21 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+### Initialize client
+In order to use [Trefle API](https://trefle.io/) you are required to [register](https://trefle.io/registrations/new) for an API token.
+
+Once registered you can Initialize the herboriste's trefle client like so:
+```ruby
+client = Herboriste::TrefleClient.new token: 'xxxxxxxxxxxxxxxxx'
+#<Herboriste::TrefleClient:0x00007fbfb8ceea08 @token="*****">
+```
+You can also pass your token as an environment variable like so:
+```ruby
+ENV['TREFLE_TOKEN'] = 'xxxxxxxxxxxxxxxxx'
+client = Herboriste::TrefleClient.new
+#<Herboriste::TrefleClient:0x00007fbfb8cf6118 @token="*****">
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
