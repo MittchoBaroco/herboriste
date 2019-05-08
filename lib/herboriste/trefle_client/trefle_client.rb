@@ -1,8 +1,10 @@
 require 'herboriste/connection'
+require './get_plant'
 
 module Herboriste
   class TrefleClient
     include Herboriste::Connection
+    include Herboriste::Get_plant
 
     def initialize(params={token: ENV['TREFLE_TOKEN']})
       raise ArgumentError, "Token can't be blank" if params[:token].nil? or params[:token].empty?
