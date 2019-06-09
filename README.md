@@ -22,8 +22,6 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
-
 ### Initialize client
 In order to use [Trefle API](https://trefle.io/) you are required to [register](https://trefle.io/registrations/new) for an API token.
 
@@ -37,6 +35,19 @@ You can also pass your token as an environment variable like so:
 ENV['TREFLE_TOKEN'] = 'xxxxxxxxxxxxxxxxx'
 client = Herboriste::TrefleClient.new
 #<Herboriste::TrefleClient:0x00007fbfb8cf6118 @token="*****">
+```
+
+### Query the API
+If you know the actual Treffle id of the plant:
+```
+client.plant id: 211550
+# => {"slug"=>"pimpinella-anisoides", "scientific_name"=>"Pimpinella anisoides", "link"=>"http://trefle.io/api/plants/211550", "id"=>211550, "complete_data"=>false, "common_name"=>nil}
+```
+
+You can also query the API with a string
+```
+client.plant query: 'Pine'
+# => {"slug"=>"pimpinella-anisoides", "scientific_name"=>"Pimpinella anisoides", "link"=>"http://trefle.io/api/plants/211550", "id"=>211550, "complete_data"=>false, "common_name"=>nil}...
 ```
 
 ## Development
