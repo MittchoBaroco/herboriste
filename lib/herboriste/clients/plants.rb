@@ -1,6 +1,11 @@
 module Herboriste
   class TrefleClient
     module Plants
+      def plants
+        answer = self.get("/plants")
+        return parse_body(answer[:body])
+      end
+
       def plant(params={})
         raise ArgumentError, "You at least need to pass a query or an id" unless params.has_key? :query or params.has_key? :id
         query = "?q=#{params[:query]}" if params.has_key? :query

@@ -10,4 +10,9 @@ RSpec.describe Herboriste::TrefleClient::Plants do
     expect(client.plant(query: "rosemary").first["slug"]).to eq "andromeda-×jamesiana"
     expect(client.plant(query: "rosemary").length).to eq 19
   end
+
+  it "can query all plants" do
+    expect(client.plants.first["slug"]).to eq "bupleurum-linearifolium"
+    expect(client.plants.length).to eq 30
+  end
 end
