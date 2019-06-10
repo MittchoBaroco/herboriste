@@ -6,11 +6,12 @@ class FakeTrefle < Sinatra::Base
   end
 
   get '/api/plants' do
-    json_response 200, 'plants.json'
-  end
-
-  get '/api/plants?q=rosemary' do
-    json_response 200, 'rosemary.json'
+    query = params["q"]
+    if query == "rosemary"
+      return json_response 200, 'rosemary.json' if query == "rosemary"
+    else
+      return json_response 200, 'plants.json'
+    end
   end
 
   private
