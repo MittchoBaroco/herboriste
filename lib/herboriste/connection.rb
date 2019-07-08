@@ -1,9 +1,11 @@
 require "httparty"
 module Herboriste
   module Connection
-    def get( url, options = {} )
+    def get( endpoint, options = {} )
+      uri = "https://trefle.io/api" + endpoint.to_s
+      puts uri
       response = HTTParty.get(
-        url,
+        uri,
         headers: { authorization: @token }
       )
 

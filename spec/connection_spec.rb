@@ -3,9 +3,9 @@ RSpec.describe Herboriste::Connection do
   let!(:client) {Herboriste::TrefleClient.new(token: "12345")}
 
   it 'can perfom a get query' do
-    uri = URI('https://trefle.io/api/plants')
+    endpoint = URI('/plants')
 
-    response = client.get(uri)
+    response = client.get(endpoint)
     body = JSON.load(response[:body])
     status = response[:status]
 
